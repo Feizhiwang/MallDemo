@@ -1,14 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">UserCenter</string>
-    <string name="title_activity_login">Sign in</string>
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <!-- 用户信息单行 -->
+    <style name="user_info_line_style">
+        <item name="android:background">@drawable/border_bottom</item>
+        <item name="android:paddingLeft">@dimen/common_padding</item>
+        <item name="android:paddingRight">@dimen/common_padding</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/common_line_height</item>
+    </style>
+    <!-- 用户信息标签区域 -->
+    <style name="user_info_label_style">
+        <item name="android:textSize">@dimen/text_big_size</item>
+        <item name="android:textColor">#ff868686</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <!-- 用户信息内容区域 -->
+    <style name="user_info_content_style" parent="@style/user_info_label_style">
+        <item name="android:textSize">@dimen/text_middle_size</item>
+        <item name="android:textColor">@color/text_normal</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
 </resources>
