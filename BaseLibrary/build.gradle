@@ -3,9 +3,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 27
-
-
-
+    
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
@@ -36,6 +34,9 @@ dependencies {
 
     api "org.jetbrains.anko:anko-commons:$anko_version"
     api "org.jetbrains.anko:anko-design:$anko_version" // For SnackBars
+    // RxKotlin and RxAndroid
+    api "io.reactivex:rxkotlin:$rx_kotlin_version"
+    api "io.reactivex:rxandroid:${rx_android_version}"
 
 }
 repositories {
