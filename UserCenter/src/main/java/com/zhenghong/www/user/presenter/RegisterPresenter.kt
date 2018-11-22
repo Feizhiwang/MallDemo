@@ -14,22 +14,18 @@ import rx.schedulers.Schedulers
 
 class RegisterPresenter : BasePresenter<RegisterView>() {
 
-    fun register(mobile: String, verifyCode: String, pwd: String) {
+    fun register(mobile: String, pwd: String, verifyCode: String) {
         val service = UserServiceImpl()
         service.register(mobile, verifyCode, pwd)
-            .subscribe(object : BaseSubscriber<Boolean>() {
+            .execute(object : BaseSubscriber<Boolean>() {
                 override fun onNext(t: Boolean) {
                     mView.onRegisterResult(t)
                 }
 
                 override fun onCompleted() {
-                    super.onCompleted()
-                    Log.i("aa", "aa")
                 }
 
                 override fun onError(e: Throwable) {
-                    super.onError(e)
-                    e.printStackTrace()
                 }
             })
     }
