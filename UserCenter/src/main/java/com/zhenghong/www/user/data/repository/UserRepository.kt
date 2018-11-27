@@ -6,8 +6,9 @@ import com.zhenghong.www.user.data.api.UserApi
 import com.zhenghong.www.user.data.protocol.RegisterReq
 import retrofit2.Retrofit
 import rx.Observable
+import javax.inject.Inject
 
-class UserRepository {
+class UserRepository @Inject constructor() {
     fun register(mobile: String, pwd: String, verifyCode: String): Observable<BaseResp<String>> {
         return RetrofitFactory.instantce.create(UserApi::class.java).register(RegisterReq(mobile, pwd, verifyCode))
     }
