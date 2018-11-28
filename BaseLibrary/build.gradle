@@ -53,6 +53,9 @@ dependencies {
     api "com.trello:rxlifecycle-kotlin:$rx_lifecycle_version"
     api "com.trello:rxlifecycle-components:$rx_lifecycle_version"
 
+    //RxLifecycle
+    api "com.trello:rxlifecycle-kotlin:$rx_lifecycle_version"
+    api "com.trello:rxlifecycle-components:$rx_lifecycle_version"
 }
 repositories {
     mavenCentral()

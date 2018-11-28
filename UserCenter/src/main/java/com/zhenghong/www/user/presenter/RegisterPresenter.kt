@@ -8,7 +8,7 @@ import com.zhenghong.www.user.service.UserService
 import com.zhenghong.www.user.service.impl.UserServiceImpl
 import javax.inject.Inject
 
-class RegisterPresenter @Inject constructor(): BasePresenter<RegisterView>() {
+class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
 
     @Inject
     lateinit var userService: UserService
@@ -26,6 +26,6 @@ class RegisterPresenter @Inject constructor(): BasePresenter<RegisterView>() {
                 override fun onError(e: Throwable) {
                     mView.onRegisterResult(false)
                 }
-            })
+            }, lifecycleProvider)
     }
 }

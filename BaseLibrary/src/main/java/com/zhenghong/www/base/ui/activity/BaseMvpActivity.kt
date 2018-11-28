@@ -6,6 +6,7 @@ import com.zhenghong.www.base.common.BaseApplication
 import com.zhenghong.www.base.injection.component.ActivityComponent
 import com.zhenghong.www.base.injection.component.DaggerActivityComponent
 import com.zhenghong.www.base.injection.module.ActivityModule
+import com.zhenghong.www.base.injection.module.LifecycleProviderModule
 import com.zhenghong.www.base.presenter.BasePresenter
 import com.zhenghong.www.base.presenter.view.BaseView
 import javax.inject.Inject
@@ -25,6 +26,7 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
         activityComponent = DaggerActivityComponent.builder()
             .appComponent((application as BaseApplication).appComponent)
             .activityModule(ActivityModule(this))
+            .lifecycleProviderModule(LifecycleProviderModule(this))
             .build()
     }
 

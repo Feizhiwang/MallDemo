@@ -12,7 +12,7 @@ import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import javax.inject.Inject
 
-class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
+class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,17 +23,23 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
 
 
         mRegisterBtn.setOnClickListener {
-            mPresenter.register(mMobileEt.text.toString().trim(),mPwdEt.text.toString(), mVerifyCodeEt.text.toString().trim())
+            mPresenter.register(
+                mMobileEt.text.toString().trim(),
+                mPwdEt.text.toString(),
+                mVerifyCodeEt.text.toString().trim()
+            )
         }
     }
 
     private fun initInjection() {
-        DaggerUserComponent.builder().activityComponent(activityComponent).build().inject(this)
-       mPresenter.mView = this
+        DaggerUserComponent.builder()
+            .activityComponent(activityComponent)
+            .build().inject(this)
+        mPresenter.mView = this
     }
 
     override fun onRegisterResult(result: Boolean) {
-       toast("login result: $result" )
+        toast("login result: $result")
 
     }
 

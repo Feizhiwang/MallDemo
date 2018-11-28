@@ -6,7 +6,6 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-@Singleton
 class ActivityModule(private val activity: Activity) {
 
     @Provides
