@@ -17,14 +17,17 @@ class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
         userService.register(mobile, verifyCode, pwd)
             .execute(object : BaseSubscriber<Boolean>() {
                 override fun onNext(t: Boolean) {
-                    mView.onRegisterResult(t)
+                    if(t) {
+                        mView.onRegisterResult("register success!!")
+                    }
+
                 }
 
                 override fun onCompleted() {
                 }
 
                 override fun onError(e: Throwable) {
-                    mView.onRegisterResult(false)
+                    mView.onRegisterResult(e.toString())
                 }
             }, lifecycleProvider)
     }

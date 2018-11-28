@@ -20,6 +20,7 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initActivityInjection()
+        injectComponent()
     }
 
     private fun initActivityInjection() {
@@ -29,6 +30,8 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
             .lifecycleProviderModule(LifecycleProviderModule(this))
             .build()
     }
+
+    abstract fun injectComponent()
 
     override fun showLoading() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

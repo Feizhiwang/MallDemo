@@ -19,8 +19,6 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        initInjection()
-
 
         mRegisterBtn.setOnClickListener {
             mPresenter.register(
@@ -31,14 +29,14 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
         }
     }
 
-    private fun initInjection() {
+    override fun injectComponent() {
         DaggerUserComponent.builder()
             .activityComponent(activityComponent)
             .build().inject(this)
         mPresenter.mView = this
     }
 
-    override fun onRegisterResult(result: Boolean) {
+    override fun onRegisterResult(result: String) {
         toast("login result: $result")
 
     }

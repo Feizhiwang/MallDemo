@@ -1,4 +1,4 @@
 package com.zhenghong.www.base.rx
 
-class BaseException(val status: Int, val msg:String): Throwable() {
+data class BaseException(val status: Int, val msg:String): Throwable() {
 }
